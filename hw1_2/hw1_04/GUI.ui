@@ -43,7 +43,7 @@
      <property name="title">
       <string/>
      </property>
-     <widget class="QPushButton" name="btn_extrinsic">
+     <widget class="QPushButton" name="btn_loadImg2">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -56,7 +56,7 @@
        <string>Load Image 2</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="btn_distortion">
+     <widget class="QPushButton" name="btn_loadImg1">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -82,7 +82,7 @@
      <property name="title">
       <string/>
      </property>
-     <widget class="QPushButton" name="btn_extrinsic_2">
+     <widget class="QPushButton" name="btn_matchKeyPts">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -95,7 +95,7 @@
        <string>4.2 Matched Keypoints</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="btn_result1">
+     <widget class="QPushButton" name="btn_keypts">
       <property name="geometry">
        <rect>
         <x>10</x>

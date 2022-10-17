@@ -31,7 +31,7 @@
     <property name="title">
      <string>5. Cifar10 Classifier using VGG16</string>
     </property>
-    <widget class="QPushButton" name="btn_corner">
+    <widget class="QPushButton" name="btn_loadImg">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -56,7 +56,7 @@
      <property name="title">
       <string/>
      </property>
-     <widget class="QPushButton" name="btn_extrinsic">
+     <widget class="QPushButton" name="btn_showImg">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -69,7 +69,7 @@
        <string>1. Show Train Images</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="btn_intrinsic">
+     <widget class="QPushButton" name="btn_showMdlStruc">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -82,7 +82,7 @@
        <string>2. Show Model Structure</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="btn_distortion">
+     <widget class="QPushButton" name="btn_showDataAug">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -95,7 +95,7 @@
        <string>3. Show Data Augmentation</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="btn_result1">
+     <widget class="QPushButton" name="btn_inference">
       <property name="geometry">
        <rect>
         <x>10</x>
