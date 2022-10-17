@@ -10,6 +10,7 @@ __pycache__/
 *.ppt
 *.doct
 *.doc
+*.bmp
 
 # C extensions
 *.so
