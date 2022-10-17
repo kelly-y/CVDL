@@ -1,4 +1,3 @@
-import enum
 import os, cv2
 import numpy as np
 

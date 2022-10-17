@@ -1,5 +1,5 @@
 import sys, os
-from GUI_hw1 import Ui_MainWindow
+from GUI import Ui_MainWindow
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QFileDialog
 from Q1_CareraCalibration import CornerDectection, FindIntrinsic, FindExtrinsic, FindDistortion, ShowResult
