@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(222, 320)
+        MainWindow.resize(506, 331)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
@@ -42,9 +42,12 @@ class Ui_MainWindow(object):
         self.btn_inference = QtWidgets.QPushButton(self.groupBox_2)
         self.btn_inference.setGeometry(QtCore.QRect(10, 170, 161, 25))
         self.btn_inference.setObjectName("btn_inference")
+        self.graphicsView = QtWidgets.QGraphicsView(self.centralwidget)
+        self.graphicsView.setGeometry(QtCore.QRect(230, 40, 256, 241))
+        self.graphicsView.setObjectName("graphicsView")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 222, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 506, 22))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
