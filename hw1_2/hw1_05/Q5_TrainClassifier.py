@@ -1,13 +1,12 @@
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import torch.optim as optim
 import torchvision
 import torchvision.transforms as transforms
+from torchsummary import summary
 import matplotlib.pyplot as plt
 from PIL import Image
 from PyQt5.QtCore import *
 from PyQt5.QtGui import QPixmap
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 uiWidth = 361
 uiHeight = 351
@@ -34,7 +33,9 @@ def showCifar10():
     plt.show()
 
 def showMdlStructure():
-    pass
+    model = torchvision.models.vgg19()
+    model.to(device)
+    summary(model, (3, 32, 32))
 
 def showAugmentation(imgPath, uiShow):
     # Show
