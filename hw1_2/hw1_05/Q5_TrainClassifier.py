@@ -70,5 +70,5 @@ def showAugmentation(imgPath, uiShow):
 def showAccLoss():
     pass
 
-def predict(imgPath, lblConf, lblPred):
+def predict(imgPath, uiShow, lblConf, lblPred):
     pass

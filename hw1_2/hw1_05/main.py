@@ -23,8 +23,8 @@ if __name__ == "__main__":
     ui.btn_showImg.clicked.connect(showCifar10)
     ui.btn_showMdlStruc.clicked.connect(showMdlStructure)
     ui.btn_showDataAug.clicked.connect( lambda: showAugmentation(imgPath[0], ui.label) )
-    ui.btn_showAccLoss.clicked.connect(showAccLoss)
-    ui.btn_inference.clicked.connect( lambda: predict(imgPath[0], ui.lbl_conf, ui.lbl_prediction) )
+    ui.btn_showAccLoss.clicked.connect( lambda: showAccLoss(ui.label) )
+    ui.btn_inference.clicked.connect( lambda: predict(imgPath[0], ui.label, ui.lbl_conf, ui.lbl_prediction) )
 
     # Show & Exit
     MainWindow.show()
