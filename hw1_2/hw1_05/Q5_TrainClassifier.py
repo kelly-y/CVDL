@@ -109,5 +109,5 @@ def predict(imgPath, uiShow, lblConf, lblPred):
     ans = classes[predict]      # Class Name
 
     # Show
-    lblConf.setText("Confidence = " + str( round(conf, 2) ))
+    lblConf.setText("Confidence = " + str( round(conf, 4) ))
     lblPred.setText("Prediction Label: " + ans)
