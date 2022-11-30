@@ -98,6 +98,8 @@ def predict(imgPath, uiShow, lblConf, lblPred):
 
     # Prediction and Confidence
     img = Image.open(imgPath)   # Open image
+    if imgPath[-3:] == "png":
+        img = img.convert("RGB")
     img = img.resize((32, 32))
     imgArr = np.array(img)      # Convert to numpy array
     imgArr = np.expand_dims(imgArr, axis=0)     # Format

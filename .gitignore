@@ -164,3 +164,6 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 *.meta
+demo_imgs/demo_imgs/old_imgs/Q2_Image/Q2_lib/alphabet_lib_onboard.txt
+demo_imgs/demo_imgs/old_imgs/Q2_Image/Q2_lib/alphabet_lib_vertical.txt
+*.pptx#
