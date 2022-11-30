@@ -12,20 +12,23 @@ imgPath = None
 vdoPath = None
 directory = None
 
-def loadImg():
+def loadImg(lbl):
     global imgPath
     imgPath = QFileDialog.getOpenFileName(directory="./")
+    lbl.setText("Image path is selected.")
     return
 
-def loadVdo():
+def loadVdo(lbl):
     global vdoPath
     vdoPath = QFileDialog.getOpenFileName(directory="./")
+    lbl.setText("Video path is selected.")
     return
 
-def loadDir():
+def loadDir(lbl):
     global directory
     folderPath = QFileDialog.getExistingDirectory(directory="./")
     directory = os.listdir(folderPath)
+    lbl.setText("Folder is selected.")
     # dirContent = [fileName for fileName in dirContent if fileName[-4:] == ".bmp" or fileName[-4:] == ".jpg" or fileName[-4:] == ".png" or fileName[-4:] == ".pbm" or fileName[-4:] == ".pgm" or fileName[-4:] == ".ppm" or fileName[-4:] == ".pbm"]
     # dirContent.sort(key=lambda x: int(x[:-4]))
     return
@@ -38,12 +41,12 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
 
     # BtnClick
-    ui.btn_loadvdo.clicked.connect( loadVdo )
-    ui.btn_loadImg.clicked.connect( loadImg )
-    ui.btn_loadfld.clicked.connect( loadDir )
+    ui.btn_loadvdo.clicked.connect( lambda: loadVdo(ui.lbl_loadvdo) )
+    ui.btn_loadImg.clicked.connect( lambda: loadImg(ui.lbl_loadimg) )
+    ui.btn_loadfld.clicked.connect( lambda: loadDir(ui.lbl_loadfld) )
     ui.btn_bgsub.clicked.connect( lambda: subtraction(vdoPath[0], ui.lbl_loadvdo) )
-    # ui.btn_preprs.clicked.connect(  )
-    # ui.btn_trackvdo.clicked.connect(  )
+    ui.btn_preprs.clicked.connect( lambda: process(vdoPath[0], ui.lbl_loadvdo) )
+    ui.btn_trackvdo.clicked.connect( lambda: trackVdo(vdoPath[0], ui.lbl_loadvdo) )
     # ui.btn_transfromppt.clicked.connect(  )
     # ui.btn_rctimg.clicked.connect(  )
     # ui.btn_computeerr.clicked.connect(  )
