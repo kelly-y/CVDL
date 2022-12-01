@@ -47,7 +47,7 @@ if __name__ == "__main__":
     ui.btn_bgsub.clicked.connect( lambda: subtraction(vdoPath[0], ui.lbl_loadvdo) )
     ui.btn_preprs.clicked.connect( lambda: process(vdoPath[0], ui.lbl_loadvdo) )
     ui.btn_trackvdo.clicked.connect( lambda: trackVdo(vdoPath[0], ui.lbl_loadvdo) )
-    # ui.btn_transfromppt.clicked.connect(  )
+    ui.btn_transfromppt.clicked.connect( lambda: perspective(vdoPath[0], imgPath[0], ui.lbl_loadvdo, ui.lbl_loadimg) )
     # ui.btn_rctimg.clicked.connect(  )
     # ui.btn_computeerr.clicked.connect(  )
 
