@@ -10,6 +10,7 @@ from PCA import reconstructImg, computeError
 
 imgPath = None
 vdoPath = None
+fldPath = None
 directory = None
 
 def loadImg(lbl):
@@ -25,12 +26,12 @@ def loadVdo(lbl):
     return
 
 def loadDir(lbl):
-    global directory
-    folderPath = QFileDialog.getExistingDirectory(directory="./")
-    directory = os.listdir(folderPath)
-    lbl.setText("Folder is selected.")
-    # dirContent = [fileName for fileName in dirContent if fileName[-4:] == ".bmp" or fileName[-4:] == ".jpg" or fileName[-4:] == ".png" or fileName[-4:] == ".pbm" or fileName[-4:] == ".pgm" or fileName[-4:] == ".ppm" or fileName[-4:] == ".pbm"]
-    # dirContent.sort(key=lambda x: int(x[:-4]))
+    global fldPath, directory
+    fldPath = QFileDialog.getExistingDirectory(directory="./")
+    directory = os.listdir(fldPath)
+    lbl.setText("Folder is selected and loaded.")
+    directory = [fileName for fileName in directory if fileName[-4:] == ".bmp" or fileName[-4:] == ".jpg" or fileName[-4:] == ".png" or fileName[-4:] == ".pbm" or fileName[-4:] == ".pgm" or fileName[-4:] == ".ppm" or fileName[-4:] == ".pbm"]
+    directory.sort(key=lambda x: int(x[8:-5]))
     return
 
 if __name__ == "__main__":
@@ -48,8 +49,8 @@ if __name__ == "__main__":
     ui.btn_preprs.clicked.connect( lambda: process(vdoPath[0], ui.lbl_loadvdo) )
     ui.btn_trackvdo.clicked.connect( lambda: trackVdo(vdoPath[0], ui.lbl_loadvdo) )
     ui.btn_transfromppt.clicked.connect( lambda: perspective(vdoPath[0], imgPath[0], ui.lbl_loadvdo, ui.lbl_loadimg) )
-    # ui.btn_rctimg.clicked.connect(  )
-    # ui.btn_computeerr.clicked.connect(  )
+    ui.btn_rctimg.clicked.connect( lambda: reconstructImg(fldPath, directory) )
+    ui.btn_computeerr.clicked.connect( lambda: computeError(fldPath, directory) )
 
     # Show & Exit
     MainWindow.show()
