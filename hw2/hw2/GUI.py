@@ -133,7 +133,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "2022 CvDl Hw2"))
         self.groupBox.setTitle(_translate("MainWindow", "Load"))
         self.btn_loadvdo.setText(_translate("MainWindow", "Load Video"))
         self.btn_loadImg.setText(_translate("MainWindow", "Load Image"))

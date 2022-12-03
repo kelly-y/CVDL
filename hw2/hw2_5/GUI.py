@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(699, 448)
+        MainWindow.resize(615, 448)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
@@ -60,13 +60,13 @@ class Ui_MainWindow(object):
         self.btn_showDtrb.setFont(font)
         self.btn_showDtrb.setObjectName("btn_showDtrb")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(280, 10, 391, 371))
+        self.label.setGeometry(QtCore.QRect(320, 80, 231, 241))
         self.label.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.label.setText("")
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.lbl_prediction = QtWidgets.QLabel(self.centralwidget)
-        self.lbl_prediction.setGeometry(QtCore.QRect(280, 390, 391, 21))
+        self.lbl_prediction.setGeometry(QtCore.QRect(280, 330, 311, 21))
         font = QtGui.QFont()
         font.setPointSize(14)
         self.lbl_prediction.setFont(font)
@@ -74,7 +74,7 @@ class Ui_MainWindow(object):
         self.lbl_prediction.setObjectName("lbl_prediction")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 699, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 615, 22))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -86,7 +86,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "2022 CvDl Hw2-5"))
         self.groupBox.setTitle(_translate("MainWindow", "5. ResNet50"))
         self.btn_loadImg.setText(_translate("MainWindow", "Load Image"))
         self.btn_inference.setText(_translate("MainWindow", "5. Inference"))
