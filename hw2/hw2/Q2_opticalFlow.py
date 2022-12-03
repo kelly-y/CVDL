@@ -75,7 +75,9 @@ def trackVdo(vdoPath, lbl):
             frame = cv2.circle(frame, (xN, yN), 5, (0, 255, 255), -1)
         img = cv2.add(frame, mask)
         cv2.imshow("Image", img)
-        cv2.waitKey(int(1000/fps))
+        key = cv2.waitKey(int(1000/fps))
+        if key == 27:
+            break
 
         oldGry = gry.copy()
         oldKpts = kpts.reshape(-1, 1, 2)

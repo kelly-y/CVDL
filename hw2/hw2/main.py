@@ -3,10 +3,10 @@ from GUI import Ui_MainWindow
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QFileDialog
 
-from background import subtraction
-from opticalFlow import process, trackVdo
-from transform import perspective
-from PCA import reconstructImg, computeError
+from Q1_background import subtraction
+from Q2_opticalFlow import process, trackVdo
+from Q3_transform import perspective
+from Q4_PCA import reconstructImg, computeError
 
 imgPath = None
 vdoPath = None

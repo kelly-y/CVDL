@@ -39,6 +39,8 @@ def subtraction(vdoPath, lbl):
         cv2.imshow("Original", frames[i+25])
         cv2.imshow("Mask", masks[i])
         cv2.imshow("Foreground", cv2.bitwise_and(tstFrms[i], tstFrms[i], mask=masks[i]))
-        cv2.waitKey(int(1000/fps))
+        key = cv2.waitKey(int(1000/fps))
+        if key == 27:
+            break
 
     cv2.destroyAllWindows()
