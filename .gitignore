@@ -167,3 +167,5 @@ cython_debug/
 demo_imgs/demo_imgs/old_imgs/Q2_Image/Q2_lib/alphabet_lib_onboard.txt
 demo_imgs/demo_imgs/old_imgs/Q2_Image/Q2_lib/alphabet_lib_vertical.txt
 *.pptx#
+*.mp4
+hw2/hw2_5/train.py
