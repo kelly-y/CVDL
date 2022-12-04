@@ -1,15 +1,12 @@
-import os, cv2, random
+import os, random
 import numpy as np
 import torch
 import torchvision
 import torch.nn as nn
-import torch.nn.functional as F
 import torchvision.transforms as transforms
 from torchsummary import summary
 import matplotlib.pyplot as plt
 from PIL import Image
-from PyQt5.QtCore import *
-from PyQt5.QtGui import QPixmap
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 model = None
@@ -37,55 +34,65 @@ def showImages():
 
 def showDistribution():
     img = Image.open( os.path.join(os.getcwd(), "distribution.png") )
+    fig = plt.figure(0)
     plt.imshow(img)
     plt.axis("off")
+    fig.canvas.set_window_title("Distribution")
     plt.show()
 
 def showMdlStructure():
     global model
     if not model:
-        model = torchvision.models.resnet50()
+        model = torchvision.models.resnet50(pretrained=True)
 
         fcIn = model.fc.in_features
         model.fc = nn.Linear(fcIn, 1)
 
         model.to(device)
-        model.load_state_dict( torch.load( os.path.join(os.getcwd(), "model_Final.pth") ) ) 
 
     summary(model, (3, 224, 224))
 
 def showCamparison():
-    pass
+    img = Image.open( os.path.join(os.getcwd(), "accCompare.png") )
+    fig = plt.figure(0)
+    plt.imshow(img)
+    plt.axis("off")
+    fig.canvas.set_window_title("Accuracy Comparison")
+    plt.show()
 
-def inference(imgPath, picLbl, txtLbl):
-    # Show image
-    pixmap = QPixmap(imgPath)
-    pixmap = pixmap.scaled(224, 224, aspectRatioMode=Qt.IgnoreAspectRatio)
-    picLbl.setPixmap(pixmap)
-
+def inference(imgPath, txtLbl):
     # Load model
     global model
     if not model:
-        model = torchvision.models.resnet50()
+        model = torchvision.models.resnet50(pretrained=True)
 
         fcIn = model.fc.in_features
         model.fc = nn.Linear(fcIn, 1)
 
         model.to(device)
-        model.load_state_dict( torch.load( os.path.join(os.getcwd(), "model_Final.pth") ) )
+    model.load_state_dict( torch.load( os.path.join(os.getcwd(), "model", "model_BCE.pth") ) )
     model.eval()
+    classes = ["Cat", "Dog"]
+
+    # Define transform
+    transform = transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),
+        transforms.Normalize(
+            mean=[0.485, 0.456, 0.406],
+            std=[0.229, 0.224, 0.225]
+        )
+    ])
 
     # Predict
-    classes = ["Cat", "Dog"]
     img = Image.open(imgPath)
-    if imgPath[:3] == "png":
-        img = img.convert("RGB")
-    img = img.resize((224, 224))
-    imgArr = np.array(img)
-    imgArr = np.expand_dims(imgArr, axis=0)
-    inImg = torch.Tensor(imgArr).permute(0, 3, 1, 2).to(device)
-    output = model(inImg)
-    predict = 0 if output < 0.5 else 1
+    img = img.convert("RGB")
+    imgT = transform(img)
+    imgT = imgT.unsqueeze(0)
+    imgT = imgT.to(device)
+    output = model(imgT)
+    output = torch.sigmoid(output)
+    predict = 0 if output.item() <= 0.5 else 1
     ans = classes[predict]
 
     # Show ans
